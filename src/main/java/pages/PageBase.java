@@ -29,6 +29,10 @@ public class PageBase {
         txtBox.sendKeys(text);
     }
 
+    public String getText(WebElement element){
+        return element.getText();
+    }
+
     public void waitForElement(WebElement element)
     {
         wait.until(ExpectedConditions.elementToBeClickable(element));

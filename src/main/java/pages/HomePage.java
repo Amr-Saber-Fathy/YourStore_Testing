@@ -15,11 +15,15 @@ public class HomePage extends PageBase{
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
+    /*************Locators*************/
     @FindBy(xpath = "//*[@id=\"top-links\"]/ul/li[2]")
     WebElement myAccountButton;
 
     @FindBy(linkText = "Register")
     WebElement registrationButton;
+
+    @FindBy(linkText = "Login")
+    WebElement loginButton;
 
     @FindBy(xpath = "//*[@id=\"form-currency\"]/div/button")
     public WebElement currencyButton;
@@ -33,10 +37,29 @@ public class HomePage extends PageBase{
     @FindBy(xpath = "//*[@id=\"form-currency\"]/div/ul/li[3]/button")
     WebElement dollarButton;
 
+    @FindBy(xpath = "//*[@id=\"column-right\"]/div/a[13]")
+    WebElement logOutBtn;
+
+    @FindBy(xpath = "//*[@id=\"content\"]/div/div/a")
+    WebElement logOutBtnConfirm;
+
+    /*************Methods*************/
     public void openRegistrationPage(){
         clickButton(myAccountButton);
         waitForElement(registrationButton);
         clickButton(registrationButton);
+    }
+
+    public void openLoginPage(){
+        clickButton(myAccountButton);
+        waitForElement(loginButton);
+        clickButton(loginButton);
+    }
+
+    public void logOut(){
+        clickButton(logOutBtn);
+        waitForElement(logOutBtnConfirm);
+        clickButton(logOutBtn);
     }
 
     public void changeCurrency(String currencyType){
